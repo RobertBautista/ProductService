@@ -2,8 +2,8 @@ package com.rabf.productservice.api.service;
 
 import com.rabf.productservice.api.bussines.DiscountServiceImpl;
 import com.rabf.productservice.api.bussines.discount.*;
-import com.rabf.productservice.api.domain.dto.ClientDto;
-import com.rabf.productservice.api.domain.dto.ProductDto;
+import com.rabf.productservice.api.domain.Client;
+import com.rabf.productservice.api.domain.Product;
 import com.rabf.productservice.api.enums.EClientCategory;
 import com.rabf.productservice.api.product.data.CategoryEntity;
 import com.rabf.productservice.api.product.data.ProductEntity;
@@ -71,8 +71,8 @@ public class ProductServiceImplTest {
         Mockito.when(productRepository.findAll()).thenReturn(productEntities);
     }
 
-    private ClientDto getClientDto(EClientCategory category, Calendar birthCal, Calendar memberSinceCal) {
-        return ClientDto.builder().
+    private Client getClientDto(EClientCategory category, Calendar birthCal, Calendar memberSinceCal) {
+        return Client.builder().
                 firstname("Juan").
                 lastname("Perez").
                 memberSince(memberSinceCal.getTime()).
@@ -90,7 +90,7 @@ public class ProductServiceImplTest {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, cal.get(Calendar.YEAR) - 2);
 
-        List<ProductDto> response = productService.getProductsByClient(getClientDto(EClientCategory.GOLD, birthCal,
+        List<Product> response = productService.getProductsByClient(getClientDto(EClientCategory.GOLD, birthCal,
                 cal));
 
         Assertions.assertThat(response.size()).isEqualTo(4);
@@ -113,7 +113,7 @@ public class ProductServiceImplTest {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, cal.get(Calendar.YEAR) - 6);
 
-        List<ProductDto> response = productService.getProductsByClient(getClientDto(EClientCategory.PLATINUM, birthCal,
+        List<Product> response = productService.getProductsByClient(getClientDto(EClientCategory.PLATINUM, birthCal,
                 cal));
 
         Assertions.assertThat(response.size()).isEqualTo(4);
@@ -136,7 +136,7 @@ public class ProductServiceImplTest {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, cal.get(Calendar.YEAR) - 11);
 
-        List<ProductDto> response = productService.getProductsByClient(getClientDto(EClientCategory.BLACK, birthCal,
+        List<Product> response = productService.getProductsByClient(getClientDto(EClientCategory.BLACK, birthCal,
                 cal));
 
         Assertions.assertThat(response.size()).isEqualTo(4);
@@ -158,7 +158,7 @@ public class ProductServiceImplTest {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, cal.get(Calendar.YEAR) - 11);
 
-        List<ProductDto> response = productService.getProductsByClient(getClientDto(EClientCategory.PLATINUM, birthCal,
+        List<Product> response = productService.getProductsByClient(getClientDto(EClientCategory.PLATINUM, birthCal,
                 cal));
 
         Assertions.assertThat(response.size()).isEqualTo(4);
