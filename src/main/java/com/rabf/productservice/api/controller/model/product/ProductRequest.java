@@ -1,8 +1,15 @@
 package com.rabf.productservice.api.controller.model.product;
 
+import lombok.*;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductRequest {
 
 	@NotNull(message="Name cannot be null")
@@ -13,20 +20,7 @@ public class ProductRequest {
 	@Size(min=5, max=20, message="Mark must have more than 4 characters and less than 21 ")
 	private String mark;
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getMark() {
-		return mark;
-	}
-
-	public void setMark(String mark) {
-		this.mark = mark;
-	}
+	@NotNull(message="Category cannot be null")
+	private String category;
 	
 }

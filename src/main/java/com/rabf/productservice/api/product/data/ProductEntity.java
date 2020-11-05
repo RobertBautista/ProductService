@@ -1,15 +1,18 @@
 package com.rabf.productservice.api.product.data;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "products")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductEntity implements Serializable {
 
 	/**
@@ -21,7 +24,7 @@ public class ProductEntity implements Serializable {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(nullable = false, unique = true)
+	@Column(name = "productId", nullable = false, unique = true)
 	private String productId;
 	
 	@Column(nullable = false, length = 20, unique = true)
@@ -29,6 +32,10 @@ public class ProductEntity implements Serializable {
 	
 	@Column(nullable = false, length = 20)
 	private String mark;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "category_id")
+	private CategoryEntity category;
 
 	public Long getId() {
 		return id;
@@ -61,5 +68,13 @@ public class ProductEntity implements Serializable {
 	public void setMark(String mark) {
 		this.mark = mark;
 	}
-	
+
+	public CategoryEntity getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryEntity category) {
+		this.category = category;
+	}
+
 }

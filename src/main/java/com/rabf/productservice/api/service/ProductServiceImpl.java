@@ -3,6 +3,8 @@ package com.rabf.productservice.api.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.rabf.productservice.api.bussines.IDiscountService;
+import com.rabf.productservice.api.dto.ClientDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
@@ -20,20 +22,23 @@ import com.rabf.productservice.api.utils.ProductUtils;
 public class ProductServiceImpl implements IProductService {
 
 	ProductUtils productUtils;
-	
+
+	IDiscountService discountService;
+
 	ProductRepository productRepository;
 	
 	Logger logger = LoggerFactory.getLogger(ProductServiceImpl.class);
 	
 	@Autowired
-	public ProductServiceImpl(ProductUtils productUtils, ProductRepository productRepository) {
+	public ProductServiceImpl(ProductUtils productUtils, ProductRepository productRepository,
+							  IDiscountService discountService) {
 		super();
 		this.productUtils = productUtils;
 		this.productRepository = productRepository;
+		this.discountService = discountService;
 	}
 
-	@Override
-	public List<ProductDto> getAllProducts() {
+	private List<ProductDto> getAllProducts() {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 	
@@ -66,6 +71,12 @@ public class ProductServiceImpl implements IProductService {
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
 		return modelMapper.map(productEntity, ProductDto.class);
+	}
+
+	@Override
+	public List<ProductDto> getProductsByClient(ClientDto client) {
+		List<ProductDto> products = getAllProducts();
+		return discountService.getDiscountsByClientCategory(client, products);
 	}
 
 }
