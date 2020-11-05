@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.rabf.productservice.api.bussines.IDiscountService;
-import com.rabf.productservice.api.dto.ClientDto;
+import com.rabf.productservice.api.domain.dto.ClientDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rabf.productservice.api.dto.ProductDto;
+import com.rabf.productservice.api.domain.dto.ProductDto;
 import com.rabf.productservice.api.exception.ProductNotFoundException;
 import com.rabf.productservice.api.product.data.ProductEntity;
 import com.rabf.productservice.api.product.data.ProductRepository;

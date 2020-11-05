@@ -1,4 +1,4 @@
-package com.rabf.productservice.api.dto;
+package com.rabf.productservice.api.domain.dto;
 
 import com.rabf.productservice.api.enums.EClientCategory;
 import lombok.AllArgsConstructor;

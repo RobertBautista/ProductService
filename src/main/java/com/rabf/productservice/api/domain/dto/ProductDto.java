@@ -1,5 +1,6 @@
-package com.rabf.productservice.api.dto;
+package com.rabf.productservice.api.domain.dto;
 
+import com.rabf.productservice.api.domain.dto.CategoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;

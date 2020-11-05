@@ -1,9 +1,9 @@
 package com.rabf.productservice.api.bussines;
 
 import com.rabf.productservice.api.bussines.discount.*;
-import com.rabf.productservice.api.dto.CategoryDto;
-import com.rabf.productservice.api.dto.ClientDto;
-import com.rabf.productservice.api.dto.ProductDto;
+import com.rabf.productservice.api.domain.dto.CategoryDto;
+import com.rabf.productservice.api.domain.dto.ClientDto;
+import com.rabf.productservice.api.domain.dto.ProductDto;
 import com.rabf.productservice.api.enums.EClientCategory;
 import com.rabf.productservice.api.enums.EProductCategory;
 import org.assertj.core.api.Assertions;

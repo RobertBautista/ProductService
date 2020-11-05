@@ -2,7 +2,7 @@ package com.rabf.productservice.api.controller.model;
 
 import com.rabf.productservice.api.controller.common.Constants;
 import com.rabf.productservice.api.controller.model.client.ClientRequest;
-import com.rabf.productservice.api.dto.ClientDto;
+import com.rabf.productservice.api.domain.dto.ClientDto;
 import com.rabf.productservice.api.enums.EClientCategory;
 import com.rabf.productservice.api.exception.InvalidClientCategoryException;
 import com.rabf.productservice.api.exception.InvalidDateFormatException;

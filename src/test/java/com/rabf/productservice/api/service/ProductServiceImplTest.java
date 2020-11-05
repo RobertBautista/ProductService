@@ -2,8 +2,8 @@ package com.rabf.productservice.api.service;
 
 import com.rabf.productservice.api.bussines.DiscountServiceImpl;
 import com.rabf.productservice.api.bussines.discount.*;
-import com.rabf.productservice.api.dto.ClientDto;
-import com.rabf.productservice.api.dto.ProductDto;
+import com.rabf.productservice.api.domain.dto.ClientDto;
+import com.rabf.productservice.api.domain.dto.ProductDto;
 import com.rabf.productservice.api.enums.EClientCategory;
 import com.rabf.productservice.api.product.data.CategoryEntity;
 import com.rabf.productservice.api.product.data.ProductEntity;

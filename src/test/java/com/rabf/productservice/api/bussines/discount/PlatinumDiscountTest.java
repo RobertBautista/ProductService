@@ -1,7 +1,7 @@
 package com.rabf.productservice.api.bussines.discount;
 
-import com.rabf.productservice.api.dto.CategoryDto;
-import com.rabf.productservice.api.dto.ProductDto;
+import com.rabf.productservice.api.domain.dto.CategoryDto;
+import com.rabf.productservice.api.domain.dto.ProductDto;
 import com.rabf.productservice.api.enums.EProductCategory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

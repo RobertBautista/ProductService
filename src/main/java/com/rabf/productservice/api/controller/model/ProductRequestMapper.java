@@ -1,8 +1,8 @@
 package com.rabf.productservice.api.controller.model;
 
 import com.rabf.productservice.api.controller.model.product.ProductRequest;
-import com.rabf.productservice.api.dto.CategoryDto;
-import com.rabf.productservice.api.dto.ProductDto;
+import com.rabf.productservice.api.domain.dto.CategoryDto;
+import com.rabf.productservice.api.domain.dto.ProductDto;
 import com.rabf.productservice.api.enums.EProductCategory;
 import org.modelmapper.ModelMapper;
 

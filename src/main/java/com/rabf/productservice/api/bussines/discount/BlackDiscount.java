@@ -1,6 +1,6 @@
 package com.rabf.productservice.api.bussines.discount;
 
-import com.rabf.productservice.api.dto.ProductDto;
+import com.rabf.productservice.api.domain.dto.ProductDto;
 
 public class BlackDiscount implements IDiscountStrategy {
 

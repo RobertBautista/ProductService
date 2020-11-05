@@ -1,7 +1,7 @@
 package com.rabf.productservice.api.bussines;
 
-import com.rabf.productservice.api.dto.ClientDto;
-import com.rabf.productservice.api.dto.ProductDto;
+import com.rabf.productservice.api.domain.dto.ClientDto;
+import com.rabf.productservice.api.domain.dto.ProductDto;
 
 import java.util.List;
 
