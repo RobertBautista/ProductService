@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.rabf.productservice.api.bussines.IDiscountService;
-import com.rabf.productservice.api.domain.dto.ClientDto;
+import com.rabf.productservice.api.domain.Client;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.slf4j.Logger;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rabf.productservice.api.domain.dto.ProductDto;
+import com.rabf.productservice.api.domain.Product;
 import com.rabf.productservice.api.exception.ProductNotFoundException;
 import com.rabf.productservice.api.product.data.ProductEntity;
 import com.rabf.productservice.api.product.data.ProductRepository;
@@ -38,28 +38,28 @@ public class ProductServiceImpl implements IProductService {
 		this.discountService = discountService;
 	}
 
-	private List<ProductDto> getAllProducts() {
+	private List<Product> getAllProducts() {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 	
 		Iterable<ProductEntity> productsEntity = productRepository.findAll();
-		List<ProductDto> result = new ArrayList<>();
-		productsEntity.forEach(x -> result.add(modelMapper.map(x, ProductDto.class)));
+		List<Product> result = new ArrayList<>();
+		productsEntity.forEach(x -> result.add(modelMapper.map(x, Product.class)));
 		return result;
 	}
 
 	@Override
-	public ProductDto createProduct(ProductDto productDto) {
-		productDto.setProductId(productUtils.getNewProductId());
+	public Product createProduct(Product product) {
+		product.setProductId(productUtils.getNewProductId());
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-		ProductEntity entity = modelMapper.map(productDto, ProductEntity.class);
+		ProductEntity entity = modelMapper.map(product, ProductEntity.class);
 		ProductEntity newEntity = productRepository.save(entity);
-		return modelMapper.map(newEntity, ProductDto.class);
+		return modelMapper.map(newEntity, Product.class);
 	}
 
 	@Override
-	public ProductDto getProductByProductId(String productId) {
+	public Product getProductByProductId(String productId) {
 		ProductEntity productEntity = productRepository.findByProductId(productId);
 
 		if (productEntity == null) {
@@ -70,12 +70,12 @@ public class ProductServiceImpl implements IProductService {
 		ModelMapper modelMapper = new ModelMapper();
 		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
-		return modelMapper.map(productEntity, ProductDto.class);
+		return modelMapper.map(productEntity, Product.class);
 	}
 
 	@Override
-	public List<ProductDto> getProductsByClient(ClientDto client) {
-		List<ProductDto> products = getAllProducts();
+	public List<Product> getProductsByClient(Client client) {
+		List<Product> products = getAllProducts();
 		return discountService.getDiscountsByClientCategory(client, products);
 	}
 

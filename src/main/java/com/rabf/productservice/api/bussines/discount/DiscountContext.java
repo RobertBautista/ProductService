@@ -1,6 +1,6 @@
 package com.rabf.productservice.api.bussines.discount;
 
-import com.rabf.productservice.api.domain.dto.ProductDto;
+import com.rabf.productservice.api.domain.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +17,9 @@ public class DiscountContext {
         this.discountStrategies.add(discountStrategy);
     }
 
-    public void executeStrategy(ProductDto productDto) {
+    public void executeStrategy(Product product) {
         for(IDiscountStrategy discountStrategy : this.discountStrategies) {
-            discountStrategy.applyDiscount(productDto);
+            discountStrategy.applyDiscount(product);
         }
 
     }

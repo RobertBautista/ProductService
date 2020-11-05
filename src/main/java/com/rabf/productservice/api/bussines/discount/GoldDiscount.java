@@ -1,6 +1,6 @@
 package com.rabf.productservice.api.bussines.discount;
 
-import com.rabf.productservice.api.domain.dto.ProductDto;
+import com.rabf.productservice.api.domain.Product;
 
 public class GoldDiscount implements IDiscountStrategy {
 
@@ -21,19 +21,19 @@ public class GoldDiscount implements IDiscountStrategy {
     }
 
     @Override
-    public ProductDto applyDiscount(ProductDto productDto) {
-        switch (productDto.getCategory().getProductCategory()) {
+    public Product applyDiscount(Product product) {
+        switch (product.getCategory().getProductCategory()) {
             case BASIC:
             case LIGHT:
-                productDto.setDiscount(productDto.getDiscount() + BASIC_LIGHT_DISCOUNT);
+                product.setDiscount(product.getDiscount() + BASIC_LIGHT_DISCOUNT);
                 break;
             case PLUS:
             case PREMIUM:
-                productDto.setDiscount(productDto.getDiscount() + PLUS_PREMIUM_DISCOUNT);
+                product.setDiscount(product.getDiscount() + PLUS_PREMIUM_DISCOUNT);
                 break;
         }
 
-        return productDto;
+        return product;
     }
 
 }

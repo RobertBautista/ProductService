@@ -1,9 +1,9 @@
 package com.rabf.productservice.api.bussines.discount;
 
-import com.rabf.productservice.api.domain.dto.ProductDto;
+import com.rabf.productservice.api.domain.Product;
 
 public interface IDiscountStrategy {
 
-    ProductDto applyDiscount(ProductDto productDto);
+    Product applyDiscount(Product product);
 
 }

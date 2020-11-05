@@ -1,4 +1,4 @@
-package com.rabf.productservice.api.domain.dto;
+package com.rabf.productservice.api.domain;
 
 import com.rabf.productservice.api.enums.EProductCategory;
 import lombok.*;
@@ -10,7 +10,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Setter
-public class CategoryDto implements Serializable {
+public class Category implements Serializable {
     /**
      *
      */

@@ -2,16 +2,16 @@ package com.rabf.productservice.api.service;
 
 import java.util.List;
 
-import com.rabf.productservice.api.domain.dto.ClientDto;
-import com.rabf.productservice.api.domain.dto.ProductDto;
+import com.rabf.productservice.api.domain.Client;
+import com.rabf.productservice.api.domain.Product;
 
 public interface IProductService {
 
 	// List<ProductDto> getAllProducts();
 
-	ProductDto createProduct(ProductDto productDto);
+	Product createProduct(Product product);
 
-	ProductDto getProductByProductId(String productId);
+	Product getProductByProductId(String productId);
 
-	List<ProductDto> getProductsByClient(ClientDto client);
+	List<Product> getProductsByClient(Client client);
 }

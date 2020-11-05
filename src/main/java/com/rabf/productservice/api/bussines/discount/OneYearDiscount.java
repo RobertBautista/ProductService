@@ -1,6 +1,6 @@
 package com.rabf.productservice.api.bussines.discount;
 
-import com.rabf.productservice.api.domain.dto.ProductDto;
+import com.rabf.productservice.api.domain.Product;
 
 public class OneYearDiscount implements IDiscountStrategy {
 
@@ -20,9 +20,9 @@ public class OneYearDiscount implements IDiscountStrategy {
     }
 
     @Override
-    public ProductDto applyDiscount(ProductDto productDto) {
-        productDto.setDiscount(productDto.getDiscount() + DISCOUNT);
-        return productDto;
+    public Product applyDiscount(Product product) {
+        product.setDiscount(product.getDiscount() + DISCOUNT);
+        return product;
     }
 
 }

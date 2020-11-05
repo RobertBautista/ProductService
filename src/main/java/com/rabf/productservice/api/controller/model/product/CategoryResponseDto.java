@@ -1,6 +1,13 @@
 package com.rabf.productservice.api.controller.model.product;
 
-public class CategoryResponse {
+import java.io.Serializable;
+
+public class CategoryResponseDto implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = -1377253643777389198L;
 
     private long id;
 

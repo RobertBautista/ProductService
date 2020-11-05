@@ -1,6 +1,6 @@
 package com.rabf.productservice.api.bussines.discount;
 
-import com.rabf.productservice.api.domain.dto.ProductDto;
+import com.rabf.productservice.api.domain.Product;
 
 public class BirthdateDiscount implements IDiscountStrategy {
 
@@ -23,12 +23,12 @@ public class BirthdateDiscount implements IDiscountStrategy {
     }
 
     @Override
-    public ProductDto applyDiscount(ProductDto productDto) {
-        if (productDto.getDiscount() + DISCOUNT <= MAX_DISCOUNT) {
-            productDto.setDiscount(productDto.getDiscount() + DISCOUNT);
+    public Product applyDiscount(Product product) {
+        if (product.getDiscount() + DISCOUNT <= MAX_DISCOUNT) {
+            product.setDiscount(product.getDiscount() + DISCOUNT);
         }
 
-        return productDto;
+        return product;
     }
 
 }

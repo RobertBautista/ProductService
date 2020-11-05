@@ -1,12 +1,12 @@
 package com.rabf.productservice.api.bussines;
 
-import com.rabf.productservice.api.domain.dto.ClientDto;
-import com.rabf.productservice.api.domain.dto.ProductDto;
+import com.rabf.productservice.api.domain.Client;
+import com.rabf.productservice.api.domain.Product;
 
 import java.util.List;
 
 public interface IDiscountService {
 
-    List<ProductDto> getDiscountsByClientCategory(ClientDto client, List<ProductDto> products);
+    List<Product> getDiscountsByClientCategory(Client client, List<Product> products);
 
 }
